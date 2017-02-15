@@ -15,7 +15,7 @@ if($argc eq 1){
 }else{
 	die "wrong argument";
 }
-our $type="_WARNING|_FATAL|log.warning|LOG.warning|LOG.fatal|log.fatal|log.error|log.critical|CRITICAL|LOG.warn|WARNING_LOG|FATAL_LOG|logger.warn|log.warn|DSTREAM_WARN|DSTREAM_ERROR";
+our $type="_WARNING|_FATAL|log.warning|LOG.warning|LOG.fatal|log.fatal|log.error|log.critical|CRITICAL|LOG.warn|WARNING_LOG|FATAL_LOG|logger.warn|log.warn";
 our $file_type=".*\\.\\(c\\|h\\|pl\\|cpp\\|php\\|py\\|java\\|cc\\)";
 my @fileList = `find $path -regex "$file_type" | xargs egrep -H "${log_prefix}($type)" | awk -F':' '{print \$1}' | sort |uniq`;
 

@@ -5,7 +5,7 @@ function format_log(){
     log=$2
     dest_file=$3
 	#get the log type,only for the log start [FATAL] or FATAL
-    #the log format like "2013-05-08 12:31:14,058 ERROR..."(dc product line)
+    #the log format like "2013-05-08 12:31:14,058 ERROR..."
     if [[ `echo "${log}" |egrep "^[0-9]+\-[0-9]+\-[0-9]+" |wc -l` -eq 1 ]];then
         log_type=`echo "${log}" |awk -F ' ' '{print $3}'`
     else
@@ -23,7 +23,7 @@ function format_log(){
         fi
     fi
 
-    #ccdb:*.cpp:line:thread
+    #db:*.cpp:line:thread
     str=`echo "$line" | egrep -o "[A-Za-z_]+:[A-Za-z_\./].*\.[A-Za-z]+:[0-9]+:[0-9]+"`
     if [[ ! -z $str ]];then
         #support ../*.cpp and *.cpp

@@ -74,7 +74,7 @@ function render_result_table_end()
 }
 function render_result_tail()
 {
-    ed='<br><div align=center><a href="http://wiki.babel.baidu.com/twiki/bin/view/Main/Log_cover"><font size=3>Loggcover  </font></a><font size=3>Powered by INF-DSQA<font></div></body>
+    ed='<br><div align=center><a href="http://your.wiki/Log_cover"><font size=3>Loggcover  </font></a><font size=3>Powered by baidu<font></div></body>
 </html>'
     echo "$ed">>result.html
 }
@@ -163,7 +163,7 @@ function render_resultHtml()
 #$3  the name of subject
 function send_email()
 {
-    cat $1 |formail -I "From: logcover@baidu.com" -I "MIME-Version:1.0" -I "Content-type:text/html;charset=gb2312" -I"Subject:""$3" -I "To:"$2|/usr/sbin/sendmail -oi $2 
+    cat $1 |formail -I "From: xx@baidu.com" -I "MIME-Version:1.0" -I "Content-type:text/html;charset=gb2312" -I"Subject:""$3" -I "To:"$2|/usr/sbin/sendmail -oi $2 
  }
 #render_resultHtml
-#send_email "result.html" "liuqiang02@baidu.com" "bigpipe"
+#send_email "result.html" "xx@baidu.com" "db"

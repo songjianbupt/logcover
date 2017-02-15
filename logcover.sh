@@ -23,7 +23,7 @@ function usage()
 	echo "Usage:"
 	echo "      ./logcover.sh svn_url log_dir email_addresses [-s email_subject]"
 	echo "for example:"
-	echo "      ./logcover.sh https://svn.baidu.com/inf/ds/branches/transkeeper/master/dev_2-0-0_BRANCH testlogs/ ls@baidu.com [ls2@baidu.com] [-s logcovertest]"
+	echo "      ./logcover.sh https://to.your.svn.com/product/trunk/module testlogs/ ls@baidu.com [ls2@baidu.com] [-s logcovertest]"
 	exit 0
 }
 
@@ -62,7 +62,6 @@ function generate_total_html()
 {
     #generate html head
 
-    #20130507 add diff with previous version by songjian02
     previous_base_file="_${fpath}_previous"
     previous_base_file_tmp="_${fpath}_previous_tmp"
 
@@ -385,8 +384,7 @@ function remote_log_analyse()
 
 function unittest()
 {
-	#fpath="petat_2_dev_BRANCH"
-	fpath="cacheserver_1-0-48-1_PD_BL"
+	fpath="server_1.0.0.1"
     render_result_head
     generate_total_html
     generate_file_html
@@ -483,8 +481,6 @@ function main()
     #send email with subject
     send_logcover_email "$@"
     
-
-    #scp result.html work@cq01-testing-platqa2218.vm:/home/work/local/apache/htdocs
 
     #rm -rf $tmp_dir
     echo "succss"
